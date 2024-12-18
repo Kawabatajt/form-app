@@ -1,4 +1,4 @@
-const StepThree = ({ currentStep, setCurrentStep }) => {
+const StepThree = ({ currentStep, setCurrentStep, onChange }) => {
   return (
     <form className="w-[480px] h-[655px] rounded-lg bg-white mt-[200px] p-[30px] relative">
       <img src="/logo.png" className="w-[60px] h-[60px]" />
@@ -9,9 +9,10 @@ const StepThree = ({ currentStep, setCurrentStep }) => {
       <div className="text-[14px] text-[#334155] mb-[82px]">
         <h1 className="mb-[8px]">Date of birth *</h1>
         <input
+          onChange={onChange}
           type="date"
           name=""
-          id=""
+          id="dateOfBirth"
           className="border-[1px] w-[416px] h-[44px] rounded-lg p-[12px] mb-[12px] "
         />
         <h1 className="mb-[8px]">Profile image *</h1>

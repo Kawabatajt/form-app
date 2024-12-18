@@ -1,4 +1,4 @@
-const StepTwo = ({ currentStep, setCurrentStep }) => {
+const StepTwo = ({ currentStep, setCurrentStep, onChange }) => {
   return (
     <form className="w-[480px] h-[655px] rounded-lg bg-white mt-[200px] p-[30px] relative">
       <img src="/logo.png" className="w-[60px] h-[60px]" />
@@ -9,30 +9,34 @@ const StepTwo = ({ currentStep, setCurrentStep }) => {
       <div className="text-[14px] text-[#334155]">
         <h1 className="mb-[8px]">Email *</h1>
         <input
-          type="text"
+          onChange={onChange}
+          type="email"
           name=""
-          id=""
+          id="email"
           className="border-[1px] w-[416px] h-[44px] rounded-lg p-[12px] mb-[12px] "
         />
         <h1 className="mb-[8px]">Phone number *</h1>
         <input
-          type="text"
+          onChange={onChange}
+          type="phoneNumber"
           name=""
-          id=""
+          id="phoneNumber"
           className="border-[1px] w-[416px] h-[44px] rounded-lg p-[12px] mb-[12px]"
         />
         <h1 className="mb-[8px]">Password *</h1>
         <input
+          onChange={onChange}
           type="password"
           name=""
-          id=""
+          id="password"
           className="border-[1px] w-[416px] h-[44px] rounded-lg p-[12px] mb-[12px]"
         />
         <h1 className="mb-[8px]">Confirm password *</h1>
         <input
+          onChange={onChange}
           type="password"
           name=""
-          id=""
+          id="confirmPassword"
           className="border-[1px] w-[416px] h-[44px] rounded-lg p-[12px]"
         />
       </div>

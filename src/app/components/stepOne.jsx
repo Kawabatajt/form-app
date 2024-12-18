@@ -1,4 +1,6 @@
-const StepOne = ({ currentStep, setCurrentStep }) => {
+import { useState } from "react";
+
+const StepOne = ({ currentStep, setCurrentStep, form, onChange }) => {
   return (
     <form className="w-[480px] h-[655px] rounded-lg bg-white mt-[200px] p-[30px] relative">
       <img src="/logo.png" className="w-[60px] h-[60px]" />
@@ -9,23 +11,29 @@ const StepOne = ({ currentStep, setCurrentStep }) => {
       <div className=" text-[#334155]">
         <h1 className="mb-[8px]">First name *</h1>
         <input
+          value={form.firstName}
           type="text"
           name=""
-          id=""
+          id="firstName"
+          onChange={onChange}
           className="border-[1px] w-[416px] h-[44px] rounded-lg p-[12px] mb-[12px] "
         />
         <h1 className="mb-[8px]">Last name *</h1>
         <input
+          value={form.lastName}
           type="text"
           name=""
-          id=""
+          onChange={onChange}
+          id="lastName"
           className="border-[1px] w-[416px] h-[44px] rounded-lg p-[12px] mb-[12px]"
         />
         <h1 className="mb-[8px]">Username *</h1>
         <input
+          value={form.userName}
+          onChange={onChange}
           type="text"
           name=""
-          id=""
+          id="userName"
           className="border-[1px] w-[416px] h-[44px] rounded-lg p-[12px]"
         />
       </div>
