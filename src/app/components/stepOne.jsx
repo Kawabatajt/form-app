@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const StepOne = ({ currentStep, setCurrentStep, form, onChange }) => {
+const StepOne = ({ currentStep, setCurrentStep, form, onChange, errors }) => {
   return (
     <form className="w-[480px] h-[655px] rounded-lg bg-white mt-[200px] p-[30px] relative">
       <img src="/logo.png" className="w-[60px] h-[60px]" />
@@ -18,6 +18,7 @@ const StepOne = ({ currentStep, setCurrentStep, form, onChange }) => {
           onChange={onChange}
           className="border-[1px] w-[416px] h-[44px] rounded-lg p-[12px] mb-[12px] "
         />
+        {errors && <span>{errors.firstName}</span>}
         <h1 className="mb-[8px]">Last name *</h1>
         <input
           value={form.lastName}

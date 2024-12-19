@@ -1,13 +1,21 @@
 "use client";
-import { useState } from "react";
+import { use, useState } from "react";
 import Image from "next/image";
 import { StepOne } from "./components/stepOne";
 import { StepTwo } from "./components/stepTwo";
 import { StepThree } from "./components/stepThree";
 import { Success } from "./components/success";
 import { Inter } from "next/font/google";
+import { validateStepOne } from "./components/input";
 const inter = Inter({ subsets: ["latin"] });
-const FormBody = ({ currentStep, setCurrentStep, onChange, form }) => {
+const FormBody = ({
+  currentStep,
+  setCurrentStep,
+  onChange,
+  form,
+  errors,
+  setErrors,
+}) => {
   if (currentStep === 1) {
     return (
       <StepOne
@@ -15,6 +23,8 @@ const FormBody = ({ currentStep, setCurrentStep, onChange, form }) => {
         setCurrentStep={setCurrentStep}
         onChange={onChange}
         form={form}
+        errors={errors}
+        setErrors={setErrors}
       />
     );
   }
@@ -40,6 +50,7 @@ const FormBody = ({ currentStep, setCurrentStep, onChange, form }) => {
     return <Success />;
   }
 };
+
 export default function Home() {
   const [currentStep, setCurrentStep] = useState(1);
   const [form, setForm] = useState({
@@ -59,6 +70,12 @@ export default function Home() {
     setForm(newValues);
   };
   console.log(form);
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    password: "",
+    confirmPassword: "",
+  });
   return (
     <div className={`flex justify-center ${inter.className}`}>
       <FormBody
@@ -66,6 +83,8 @@ export default function Home() {
         setCurrentStep={setCurrentStep}
         onChange={onChange}
         form={form}
+        errors={errors}
+        setErrors={setErrors}
       />
     </div>
   );
