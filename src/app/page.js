@@ -68,6 +68,21 @@ export default function Home() {
     const field = e.target.id;
     const newValues = { ...form, [field]: e.target.value };
     setForm(newValues);
+    const isValidFirstName = (firstName) => {
+      const numbers = "1234567890";
+      const symbols = "!@#$%^&*()_+{}|:";
+      for (let i = 0; i < numbers.length; i++) {
+        if (firstName.includes(numbers[i])) {
+          return false;
+        }
+      }
+      for (let i = 0; i < symbols.length; i++) {
+        if (firstName.includes(symbols[i])) {
+          return false;
+        }
+      }
+      return true;
+    };
   };
   console.log(form);
   const [errors, setErrors] = useState({
